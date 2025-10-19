@@ -16,7 +16,9 @@ RUN npm run build
 # ----- Stage 2: Phục vụ file tĩnh bằng Nginx -----
 FROM nginx:1.25-alpine
 WORKDIR /usr/share/nginx/html
-
+# *** DÒNG SỬA LỖI ĐÂY ***
+# Cài đặt 'gettext' để có lệnh 'envsubst'
+RUN apk add --no-cache gettext
 # Xóa file config mặc định của Nginx
 RUN rm /etc/nginx/conf.d/default.conf
 
