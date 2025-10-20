@@ -194,6 +194,7 @@ const BrandAddPage = () => {
               endIcon={<Icon icon="eva:save-fill" />}
               onClick={() => {
                 dispatch(addNewBrand(brand));
+                console.log("brand", brand);
                 navigate("/admin/brands")
               }}
             >

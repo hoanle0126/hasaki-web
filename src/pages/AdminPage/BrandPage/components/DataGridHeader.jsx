@@ -95,7 +95,7 @@ function RenderAction(props) {
         }}
       >
         <MenuList>
-          <MenuItem onClick={() => navigate("/admin/brands/" + row.id)}>
+          <MenuItem onClick={() => navigate("/admin/brands/" + row.url)}>
             <Icon icon="solar:eye-bold" />
             View {row.id}
           </MenuItem>
@@ -112,7 +112,7 @@ function RenderAction(props) {
                 console.log("delete");
               }}
             >
-              Delete
+              Delete {row.id}
             </Typography>
           </MenuItem>
         </MenuList>

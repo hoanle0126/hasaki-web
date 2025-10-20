@@ -40,7 +40,10 @@ const BrandViewPage = () => {
   const brandReducer = useSelector((store) => store.brands);
 
   React.useEffect(() => {
-    dispatch(getBrandById(id));
+    dispatch(getBrandById({
+      id:id,
+      onSuccess: () => {},
+    }));
   }, []);
 
   React.useEffect(() => {

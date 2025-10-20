@@ -9,8 +9,20 @@ import TopSellSection from "./TopSellSection";
 import ServiceSection from "./ServiceSection";
 import TopSearchSection from "./TopSearchSection";
 import ProductSection from "./ProductSection";
+import echo from "@/echo";
 
 const LandingPage = () => {
+  echo
+    .channel("public-chat-channel")
+    // Vẫn lắng nghe Event
+    .listen("NewMessage", (e) => {
+      console.log("Tin nhắn:", e);
+    })
+    // ⚠️ Lắng nghe Whisper
+    .listenForWhisper("typing", (e) => {
+      console.log("NGƯỜI DÙNG ĐANG GÕ PHÍM: ", e.username);
+    });
+
   return (
     <div>
       <BannerSection />
@@ -30,7 +42,7 @@ const LandingPage = () => {
         {/* <TopSearchSection /> */}
         {/* <ServiceSection /> */}
       </Stack>
-        <ProductSection />
+      <ProductSection />
     </div>
   );
 };

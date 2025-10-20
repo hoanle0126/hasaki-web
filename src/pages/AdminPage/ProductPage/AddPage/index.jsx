@@ -62,7 +62,7 @@ const AddProductPage = () => {
 
   React.useEffect(() => {
     dispatch(getCategoriesChildren());
-    dispatch(getAllBrands());
+    dispatch(getAllBrands({onSuccess: () => {}}));
   }, []);
 
   const handleTab = (event, newValue) => {
@@ -72,7 +72,8 @@ const AddProductPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addProduct(product));
-    navigate("/admin/products");
+    // navigate("/admin/products");
+    console.log("product", product);
   };
 
   return (
